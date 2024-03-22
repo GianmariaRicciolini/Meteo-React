@@ -1,0 +1,26 @@
+import React from "react";
+import { Row, Col, Carousel } from "react-bootstrap";
+import OneDay from "./OneDay";
+
+const WeatherDayData = ({ weatherData }) => {
+  const uniqueDays = Array.from(new Set(weatherData.list.map((item) => item.dt_txt.split(" ")[0])));
+
+  const uniqueDateObjects = uniqueDays.map((day) => new Date(day));
+
+  return (
+    <Carousel interval={null}>
+      {uniqueDateObjects.map((day, index) => (
+        <Carousel.Item key={index}>
+          <Row>
+            <Col>
+              <h5 className="card-title">{day.toDateString()}</h5>
+              <OneDay weatherData={weatherData} day={day} />
+            </Col>
+          </Row>
+        </Carousel.Item>
+      ))}
+    </Carousel>
+  );
+};
+
+export default WeatherDayData;
