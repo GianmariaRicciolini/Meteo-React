@@ -1,5 +1,5 @@
 import React from "react";
-import WeatherListGroup from "./WeatherListGroup";
+import DataPerHour from "./DataPerHour";
 
 const OneDay = ({ weatherData, day }) => {
   const filteredData = weatherData.list.filter((item) => {
@@ -10,7 +10,7 @@ const OneDay = ({ weatherData, day }) => {
   return (
     <>
       {filteredData.map((dayData, index) => (
-        <WeatherListGroup key={index} day={dayData} />
+        <DataPerHour key={index} day={dayData} />
       ))}
     </>
   );

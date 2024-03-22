@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
-import WeatherDayData from "./WeatherDayData";
+import CarouselDays from "./CarouselDays";
 
-const WeatherCity = () => {
+const CityData = () => {
   const [weatherData, setWeatherData] = useState(null);
 
   useEffect(() => {
@@ -39,11 +39,11 @@ const WeatherCity = () => {
             />
           </div>
           <h4 className="mb-2 text-muted">{weatherData.list[0].weather[0].description}</h4>
-          <WeatherDayData weatherData={weatherData} />
+          <CarouselDays weatherData={weatherData} />
         </div>
       )}
     </Container>
   );
 };
 
-export default WeatherCity;
+export default CityData;

@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col, Carousel } from "react-bootstrap";
 import OneDay from "./OneDay";
 
-const WeatherDayData = ({ weatherData }) => {
+const CarouselDays = ({ weatherData }) => {
   const uniqueDays = Array.from(new Set(weatherData.list.map((item) => item.dt_txt.split(" ")[0])));
 
   const uniqueDateObjects = uniqueDays.map((day) => new Date(day));
@@ -23,4 +23,4 @@ const WeatherDayData = ({ weatherData }) => {
   );
 };
 
-export default WeatherDayData;
+export default CarouselDays;

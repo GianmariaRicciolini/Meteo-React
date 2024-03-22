@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
 
-const WeatherListGroup = ({ day }) => {
+const DataPerHour = ({ day }) => {
   const kelvinToCelsius = (tempKelvin) => {
     return (tempKelvin - 273.15).toFixed(0);
   };
@@ -30,4 +30,4 @@ const WeatherListGroup = ({ day }) => {
   );
 };
 
-export default WeatherListGroup;
+export default DataPerHour;

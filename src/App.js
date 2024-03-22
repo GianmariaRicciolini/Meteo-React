@@ -1,7 +1,7 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MyNav from "./components/MyNav";
-import WeatherCity from "./components/WeatherCity";
+import CityData from "./components/CityData";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage";
 
@@ -14,7 +14,7 @@ function App() {
         </header>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/weather/:city" element={<WeatherCity />} />
+          <Route path="/weather/:city" element={<CityData />} />
         </Routes>
       </div>
     </BrowserRouter>
