@@ -6,20 +6,26 @@ const WeatherCity = () => {
   const [weatherData, setWeatherData] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://api.openweathermap.org/data/2.5/forecast?q=Milan&appid=0c1397fcc1479fba154a81ca832192b0"
-        );
-        const data = await response.json();
-        setWeatherData(data);
-      } catch (error) {
-        console.error("Error fetching weather data:", error);
-      }
-    };
+    const pathname = window.location.pathname;
+    const parts = pathname.split("/");
+    const city = parts[2];
 
-    fetchData();
+    if (city) {
+      fetchData(city);
+    }
   }, []);
+
+  const fetchData = async (city) => {
+    try {
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=0c1397fcc1479fba154a81ca832192b0`
+      );
+      const data = await response.json();
+      setWeatherData(data);
+    } catch (error) {
+      console.error("Error fetching weather data:", error);
+    }
+  };
 
   return (
     <Container>
