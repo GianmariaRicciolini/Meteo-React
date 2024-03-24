@@ -4,6 +4,7 @@ import MyNav from "./components/MyNav";
 import CityData from "./components/CityData";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/weather/:city" element={<CityData />} />
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );

@@ -32,7 +32,7 @@ const CityData = () => {
   };
 
   return (
-    <Container>
+    <Container className="pb-5" style={{ minHeight: "100vh" }}>
       {weatherData && (
         <>
           <div className="d-flex flex-column align-items-center my-5">
