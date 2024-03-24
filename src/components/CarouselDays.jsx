@@ -13,7 +13,7 @@ const CarouselDays = ({ weatherData }) => {
         <Carousel.Item key={index}>
           <Row>
             <Col>
-              <h5 className="card-title">{day.toDateString()}</h5>
+              <h5 className="card-title text-center">{day.toDateString()}</h5>
               <OneDay weatherData={weatherData} day={day} />
             </Col>
           </Row>

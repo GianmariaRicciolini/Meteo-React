@@ -40,3 +40,11 @@
 .fill-info {
   fill: #cff4fc;
 }
+
+.fs-big {
+  font-size: 4rem;
+}
+
+.fs-giant {
+  font-size: 7rem;
+}
