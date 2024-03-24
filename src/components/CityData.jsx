@@ -39,6 +39,7 @@ const CityData = () => {
             />
           </div>
           <h4 className="mb-2 text-muted">{weatherData.list[0].weather[0].description}</h4>
+
           <CarouselDays weatherData={weatherData} />
         </div>
       )}
