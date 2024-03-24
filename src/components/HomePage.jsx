@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 
 function HomePage() {
   return (
-    <Container fluid>
+    <Container fluid style={{ minHeight: "100vh" }}>
       <AlertHelp />
     </Container>
   );

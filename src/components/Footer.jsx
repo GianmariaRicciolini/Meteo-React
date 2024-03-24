@@ -6,13 +6,13 @@ const Footer = () => {
     <footer className="bg-info-subtle mt-5 pt-5">
       <Container>
         <Row>
-          <Col md={6}>
+          <Col md={10}>
             <h5 className="pb-4">Informazioni di contatto</h5>
             <p>Indirizzo: Via Lorem, 123 - 00123, Ipsum</p>
             <p>Email: lorem@mymeteo.ipsum</p>
             <p>Telefono: 0123456789</p>
           </Col>
-          <Col md={6}>
+          <Col md={2}>
             <h5 className="pb-4">Link utili</h5>
             <ul className="list-unstyled">
               <li>
