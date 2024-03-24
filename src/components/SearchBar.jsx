@@ -18,15 +18,15 @@ const SearchBar = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit} className="py-3">
-      <Form.Label className="ps-1 fs-4">Search Your City!</Form.Label>
+    <Form onSubmit={handleSubmit} className="py-3 d-flex w-50 justify-content-around align-items-center">
       <Form.Control
         type="text"
         placeholder="Search cities..."
         value={searchTerm}
         onChange={handleChange}
-        className="w-50 border-3 border-black"
+        className="border-3 border-black w-50"
       />
+      <h4 className="pe-3 fs-4">Search Your City!</h4>
     </Form>
   );
 };
