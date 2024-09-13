@@ -55,16 +55,16 @@ function RadomCity() {
   }, []);
 
   return (
-    <Container className="py-5" style={{ minHeight: "100vh" }}>
+    <Container className="py-5">
       {loading ? (
         <div className="text-center">
           <Spinner animation="border" variant="primary" />
           <p>Caricamento...</p>
         </div>
       ) : (
-        <Row>
+        <Row className="gap-5 d-flex justify-content-around">
           {cityData.map((data, index) => (
-            <Col key={index} md={4} className="mb-4">
+            <Col key={index} xs={12} sm={6} md={4} xxl={3}>
               <MeteoCityCard cityMeteo={data} />
             </Col>
           ))}
