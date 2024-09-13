@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <BrowserRouter>
-      <div>
+      <div className="bg-light">
         <header>
           <MyNav />
         </header>

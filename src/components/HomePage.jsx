@@ -6,8 +6,7 @@ import HeroSection from "./HeroSection";
 
 function HomePage() {
   return (
-    <Container fluid>
-      <AlertHelp />
+    <Container fluid className="bg-light">
       <Row>
         <Col className="p-0 m-0">
           <HeroSection />
