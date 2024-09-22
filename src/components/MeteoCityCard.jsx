@@ -5,18 +5,23 @@ function MeteoCityCard({ cityMeteo }) {
   const { name, country, temp, weather, icon } = cityMeteo;
 
   return (
-    <Row className="bg-danger" style={{ maxWidth: "300px" }}>
-      <Col xs={12} className="d-flex justify-content-start align-items-center">
-        <p className="fw-bold m-0">
-          {" "}
-          {name}, {country}
-        </p>
-        <img src={icon} alt={weather} />
+    <Row className="bg-info-subtle border rounded">
+      <Col xs={12} className="d-flex">
+        <h5 className="card-title fs-2 fw-bold my-3">
+          {name}, {country}{" "}
+        </h5>
+        <img src={icon} alt={icon} style={{ width: "60px", height: "60px" }} />
       </Col>
-      <Col xs={12}>
-        <p>Temperatura: {temp}°C</p>
-        <p>Condizioni: {weather}</p>
-      </Col>
+      <div className="mt-auto d-flex flex-column text-start">
+        <Col xs={12}>
+          <p className="fs-5">
+            <strong>Weather:</strong> {weather}
+          </p>
+          <p className="fs-5">
+            <strong>Temperature:</strong> {temp}°C
+          </p>
+        </Col>
+      </div>
     </Row>
   );
 }

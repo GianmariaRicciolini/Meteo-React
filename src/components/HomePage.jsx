@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import AlertHelp from "./AlertHelp";
 import { Col, Container, Row } from "react-bootstrap";
 import RandomCity from "./RandomCity";
-import HeroSection from "./HeroSection";
+import HeroSection from "./CarouselHero/HeroSection";
 
 function HomePage() {
   return (

@@ -26,7 +26,7 @@ const SearchBar = () => {
         onChange={handleChange}
         className="border-3 border-black bg-light w-50"
       />
-      <h4 className="pe-3 fs-4">Search Your City!</h4>
+      <h4 className="pe-3 fs-2 m-0 fw-bold">Search Your City!</h4>
     </Form>
   );
 };

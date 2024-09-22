@@ -1,7 +1,7 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MyNav from "./components/MyNav";
-import CityData from "./components/CityData";
+import CityData from "./components/CarouselDays/CityData";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import Footer from "./components/Footer";

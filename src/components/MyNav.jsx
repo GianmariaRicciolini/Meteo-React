@@ -11,8 +11,8 @@ function MyNav() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link className="text-light" as={Link} to="/">
-              Home
+            <Nav.Link className="text-light fw-bold" as={Link} to="/">
+              <p className="m-0 fs-2">Home</p>
             </Nav.Link>
           </Nav>
           <SearchBar />
