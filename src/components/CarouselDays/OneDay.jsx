@@ -14,7 +14,7 @@ const OneDay = ({ weatherData, day }) => {
   return (
     <Row className="align-items-center">
       <Col md={1}>
-        <CaretLeftFill className="m-auto fill-info" size={iconSize} />
+        <CaretLeftFill className="m-auto fill-primary" size={iconSize} />
       </Col>
       <Col md={10}>
         {filteredData.map((dayData, index) => (
@@ -22,7 +22,7 @@ const OneDay = ({ weatherData, day }) => {
         ))}
       </Col>
       <Col md={1}>
-        <CaretRightFill className="m-auto fill-info" size={iconSize} />
+        <CaretRightFill className="m-auto fill-primary" size={iconSize} />
       </Col>
     </Row>
   );

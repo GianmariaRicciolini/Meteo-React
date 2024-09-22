@@ -2,6 +2,7 @@
 import React from "react";
 import { Row, Col, Carousel } from "react-bootstrap";
 import { CaretRightFill, CaretLeftFill } from "react-bootstrap-icons";
+import { getWeatherIconUrl } from "../helpers";
 import Milan from "../../assets/img/Duomo_Milan.jpg";
 import Rome from "../../assets/img/Colosseo.jpg";
 import Paris from "../../assets/img/Paris.jpg";
@@ -34,14 +35,14 @@ const CarouselCity = ({ weatherData }) => {
   return (
     <Carousel interval={null} prevIcon={null} nextIcon={null} indicators={false}>
       {weatherData.map((cityData, index) => {
-        const weatherIconUrl = `http://openweathermap.org/img/wn/${cityData.weather[0].icon}@2x.png`;
+        const weatherIconUrl = getWeatherIconUrl(cityData.weather[0].icon);
         const cityImageUrl = getCityImage(cityData.name);
 
         return (
           <Carousel.Item key={index} style={{ height: "423px" }}>
             <Row className="align-items-center">
               <Col xs={2} className="d-flex justify-content-end pe-0">
-                <CaretLeftFill className="fill-info carousel-arrow" size={iconSize} />
+                <CaretLeftFill className="fill-primary carousel-arrow" size={iconSize} />
               </Col>
               <Col xs={8} className="text-center">
                 <Row>
@@ -85,7 +86,7 @@ const CarouselCity = ({ weatherData }) => {
                 </Row>
               </Col>
               <Col xs={2} className="d-flex justify-content-start ps-0">
-                <CaretRightFill className="fill-info carousel-arrow" size={iconSize} />
+                <CaretRightFill className="fill-primary carousel-arrow" size={iconSize} />
               </Col>
             </Row>
           </Carousel.Item>

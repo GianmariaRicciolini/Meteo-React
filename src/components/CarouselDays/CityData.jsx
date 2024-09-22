@@ -1,6 +1,8 @@
+// CityData.js
 import React, { useState, useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import CarouselDays from "./CarouselDays";
+import { getWeatherIconUrl } from "../helpers";
 
 const CityData = () => {
   const [weatherData, setWeatherData] = useState(null);
@@ -42,7 +44,7 @@ const CityData = () => {
               </Col>
               <Col xs={12} md={2}>
                 <img
-                  src={`http://openweathermap.org/img/w/${weatherData.list[0].weather[0].icon}.png`}
+                  src={getWeatherIconUrl(weatherData.list[0].weather[0].icon)}
                   alt="Weather Icon"
                   width="120px"
                   className="ms-3"

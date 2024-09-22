@@ -5,7 +5,7 @@ function MeteoCityCard({ cityMeteo }) {
   const { name, country, temp, weather, icon } = cityMeteo;
 
   return (
-    <Row className="bg-info-subtle border rounded">
+    <Row className="meteoCard glass-effect bg-primary-subtle border-0">
       <Col xs={12} className="d-flex">
         <h5 className="card-title fs-2 fw-bold my-3">
           {name}, {country}{" "}

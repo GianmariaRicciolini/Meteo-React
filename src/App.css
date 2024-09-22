@@ -41,10 +41,36 @@
   fill: #cff4fc;
 }
 
+.fill-primary {
+  fill: #d0e2ff;
+}
+
 .fs-big {
   font-size: 4rem;
 }
 
 .fs-giant {
   font-size: 7rem;
+}
+
+.meteoCard {
+  width: 350px;
+  height: 250px;
+  transition: transform 0.2s ease;
+}
+
+.meteoCard:hover {
+  transform: scale(1.1); /* Ingrandisce del 10% */
+  cursor: pointer;
+}
+
+.glass-effect {
+  background: rgba(255, 174, 0, 0.1); /* Colore bianco semitrasparente */
+  backdrop-filter: blur(10px); /* Sfoca il contenuto dietro l'elemento */
+  -webkit-backdrop-filter: blur(10px); /* Supporto per Safari */
+  border: 1px solid rgb(255, 146, 5); /* Bordo bianco trasparente */
+  border-radius: 10px; /* Arrotonda gli angoli per un effetto vetro */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Aggiunge una leggera ombra */
+  padding: 20px; /* Spazio interno */
+  color: rgb(2, 2, 2); /* Testo bianco per contrastare il fondo */
 }

@@ -55,7 +55,7 @@ function RadomCity() {
   }, []);
 
   return (
-    <Container className="py-5">
+    <Container className="py-5 my-5">
       {loading ? (
         <div className="text-center">
           <Spinner animation="border" variant="primary" />

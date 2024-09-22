@@ -1,19 +1,20 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
 import { ThermometerHalf, Wind, Moisture } from "react-bootstrap-icons";
+import { getWeatherIconUrl } from "../helpers";
 
 const DataPerHour = ({ day }) => {
   const kelvinToCelsius = (tempKelvin) => {
     return (tempKelvin - 273.15).toFixed(0);
   };
   return (
-    <Row className="d-flex align-items-center bg-info bg-opacity-10 border border-info-subtle border-start-0 rounded">
+    <Row className="d-flex align-items-center bg-primary-subtle bg-opacity-10 border border-primary-subtle border-start-0 rounded">
       <Col xs={1} className="text-end">
         <h6 className="fw-bold pt-2">{day.dt_txt.split(" ")[1].slice(0, -3)}</h6>
       </Col>
 
       <Col xs={2} className="text-end">
-        <img src={`http://openweathermap.org/img/w/${day.weather[0].icon}.png`} alt="Weather Icon" />
+        <img src={getWeatherIconUrl(day.weather[0].icon)} alt="Weather Icon" />
       </Col>
       <Col>
         <p className="pt-3 fw-bold">{day.weather[0].main}</p>
