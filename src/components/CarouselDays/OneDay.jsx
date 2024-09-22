@@ -9,20 +9,20 @@ const OneDay = ({ weatherData, day }) => {
     return date.getDate() === day.getDate();
   });
 
-  const iconSize = "40px";
+  const iconSize = "60px";
 
   return (
     <Row className="align-items-center">
-      <Col md={1}>
-        <CaretLeftFill className="m-auto fill-primary" size={iconSize} />
+      <Col xs={1} className="d-flex justify-content-end pe-0">
+        <CaretLeftFill className="fill-primary carousel-arrow" size={iconSize} />
       </Col>
-      <Col md={10}>
+      <Col xs={10}>
         {filteredData.map((dayData, index) => (
           <DataPerHour key={index} day={dayData} />
         ))}
       </Col>
-      <Col md={1}>
-        <CaretRightFill className="m-auto fill-primary" size={iconSize} />
+      <Col xs={1} className="d-flex justify-content-start ps-0">
+        <CaretRightFill className="fill-primary carousel-arrow" size={iconSize} />
       </Col>
     </Row>
   );

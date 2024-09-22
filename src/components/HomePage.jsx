@@ -13,12 +13,12 @@ function HomePage() {
         </Col>
       </Row>
       <Row>
-        <Col className="d-none d-lg-block">
+        <Col className="d-none d-lg-block text-center">
           <p className="card-title fs-big fw-bold my-3">
             Curious about the weather around the world? Here's a snapshot!
           </p>
         </Col>
-        <Col className="d-lg-none">
+        <Col className="d-lg-none text-center">
           <p className="card-title fs-1 fw-bold m-0">Curious about the weather around the world? Here's a snapshot!</p>
         </Col>
       </Row>
