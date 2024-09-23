@@ -53,6 +53,10 @@
   font-size: 7rem;
 }
 
+.fs-title {
+  font-size: 12rem;
+}
+
 .meteoCard {
   width: 350px;
   height: 250px;
@@ -90,3 +94,5 @@
   padding: 20px;
   color: rgb(2, 2, 2);
 }
+
+/* City Suggestions */

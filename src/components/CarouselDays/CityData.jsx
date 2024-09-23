@@ -38,16 +38,18 @@ const CityData = () => {
       {weatherData && (
         <>
           <div className="d-flex flex-column align-items-center my-5">
-            <Row className="align-items-center">
-              <Col xs={12} md={10}>
-                <h1 className="fs-giant fw-bold me-3">{weatherData.city.name}</h1>
+            <Row className="align-items-center w-100">
+              <Col xs={12} md={10} lg={8}>
+                <h1 className="fs-giant fw-bold me-3 text-end">
+                  {weatherData.city.name}, {weatherData.city.country}
+                </h1>
               </Col>
-              <Col xs={12} md={2}>
+              <Col xs={12} md={2} lg={4}>
                 <img
                   src={getWeatherIconUrl(weatherData.list[0].weather[0].icon)}
                   alt="Weather Icon"
                   width="120px"
-                  className="ms-3"
+                  className="bg-primary-subtle rounded-circle overflow-hidden text-start"
                 />
               </Col>
             </Row>

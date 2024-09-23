@@ -51,11 +51,12 @@ const CarouselCity = ({ weatherData }) => {
                     <Col xs={6}>
                       <Row className="ps-5">
                         <Col xs={12} className="d-flex">
-                          <h5 className="card-title fs-giant fw-bold my-3">{cityData.name}</h5>
+                          <h5 className="card-title fs-giant fw-bold my-3 pe-4">{cityData.name}</h5>
                           <img
                             src={weatherIconUrl}
                             alt={cityData.weather[0].description}
-                            style={{ width: "120px", height: "120px" }}
+                            style={{ width: "100px", height: "100px" }}
+                            className="bg-primary-subtle rounded-circle overflow-hidden"
                           />
                         </Col>
                         <div className="mt-auto d-flex flex-column text-start">

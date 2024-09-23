@@ -32,7 +32,7 @@ function HeroSection() {
     <Container fluid className="my-5 pb-5 px-0">
       <Row className="m-0 p-0">
         <Col xs={12}>
-          <h1 className="text-center fs-big fw-bold my-5 pb-5">Weather around Europe</h1>
+          <h1 className="text-center fs-title fw-bold my-5 pb-5">How's the Weather?</h1>
         </Col>
         <Col xs={12}>
           <CarouselCity weatherData={weatherData} />
