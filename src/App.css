@@ -57,11 +57,137 @@
   font-size: 12rem;
 }
 
+@media (min-width: 1400px) and (max-width: 2000px) {
+  .fs-big {
+    font-size: 3rem;
+  }
+
+  .fs-giant {
+    font-size: 6rem;
+  }
+
+  .fs-title {
+    font-size: 9rem;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .fs-big {
+    font-size: 2rem;
+  }
+
+  .fs-giant {
+    font-size: 4rem;
+  }
+
+  .fs-title {
+    font-size: 7rem;
+  }
+}
+@media (min-width: 991px) and (max-width: 1200px) {
+  .fs-big {
+    font-size: 1.5rem;
+  }
+
+  .fs-giant {
+    font-size: 3rem;
+  }
+
+  .fs-title {
+    font-size: 6rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .fs-big {
+    font-size: 3rem;
+  }
+
+  .fs-giant {
+    font-size: 4.5rem;
+  }
+
+  .fs-title {
+    font-size: 6rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .fs-big {
+    font-size: 1.5rem;
+  }
+
+  .fs-giant {
+    font-size: 3rem;
+  }
+
+  .fs-title {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .fs-big {
+    font-size: 1.5rem;
+  }
+
+  .fs-giant {
+    font-size: 3rem;
+  }
+
+  .fs-title {
+    font-size: 4rem;
+  }
+}
+
 .meteoCard {
   width: 350px;
   height: 250px;
   transition: transform 0.2s ease;
   position: relative; /* Necessario per il posizionamento assoluto dell'icona */
+}
+
+@media (min-width: 860px) {
+  .meteoCard {
+    width: 350px;
+    height: 250px;
+    transition: transform 0.2s ease;
+    position: relative;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 860px) {
+  .meteoCard {
+    width: 300px;
+    height: 220px;
+    transition: transform 0.2s ease;
+    position: relative;
+  }
+}
+
+@media (min-width: 380px) and (max-width: 768px) {
+  .meteoCard {
+    width: 350px;
+    height: 250px;
+    margin: auto;
+    transition: transform 0.2s ease;
+    position: relative;
+  }
+}
+
+@media (max-width: 380px) {
+  .meteoCard {
+    width: 320px;
+    height: 220px;
+    transition: transform 0.2s ease;
+    position: relative;
+  }
+}
+
+.link-card {
+  display: block;
+  width: fit-content; /* Aggiungi questa regola per adattare la larghezza del contenitore alla card */
+  margin: 0 auto; /* Centra il contenitore orizzontalmente */
 }
 
 .meteoCard h5 {
@@ -95,4 +221,22 @@
   color: rgb(2, 2, 2);
 }
 
-/* City Suggestions */
+/* City Carousel */
+
+.img-carousel {
+  height: auto;
+  max-height: 440px;
+  max-width: 660;
+}
+
+.meteo-icon {
+  width: 100px;
+  height: 100px;
+}
+
+@media (max-width: 1200px) {
+  .meteo-icon {
+    width: 80px;
+    height: 80px;
+  }
+}

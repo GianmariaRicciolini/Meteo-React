@@ -14,7 +14,7 @@ function HomePage() {
       </Row>
       <Row>
         <Col className="d-none d-lg-block text-center">
-          <p className="card-title fs-big fw-bold my-3">
+          <p className="card-title fs-giant fw-bold my-3">
             Curious about the weather around the world? Here's a snapshot!
           </p>
         </Col>

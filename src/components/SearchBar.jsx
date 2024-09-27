@@ -52,8 +52,8 @@ const SearchBar = () => {
   };
 
   return (
-    <div style={{ position: "relative", width: "50%" }}>
-      <Form onSubmit={handleSubmit} className="py-3 d-flex justify-content-around align-items-center">
+    <div style={{ position: "relative", width: "100%" }}>
+      <Form onSubmit={handleSubmit} className="py-3 d-flex justify-content-end ms-auto align-items-center">
         <h4 className="pe-3 fs-2 m-0 fw-bold">Search Your City!</h4>
         <div style={{ position: "relative", width: "50%" }}>
           <Form.Control
@@ -64,7 +64,7 @@ const SearchBar = () => {
             onFocus={() => setShowSuggestions(true)}
             onBlur={() => setTimeout(() => setShowSuggestions(false), 100)}
             onKeyDown={handleKeyDown} // Ascolta gli eventi della tastiera
-            className="border-3 border-black bg-light w-100"
+            className="border-3 border-black bg-light w-75 ms-auto me-4"
           />
           {showSuggestions && (
             <div

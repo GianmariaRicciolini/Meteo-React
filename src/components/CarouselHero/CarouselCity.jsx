@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 import Milan from "../../assets/img/Duomo_Milan.jpg";
 import Rome from "../../assets/img/Colosseo.jpg";
 import Paris from "../../assets/img/Paris.jpg";
-import Barcellona from "../../assets/img/SagradaFamilia.jpg";
 import Berlin from "../../assets/img/Berlin.jpg";
+import Madrid from "../../assets/img/Madrid_panorama.jpg";
 
 const getCityImage = (cityName) => {
   switch (cityName.toLowerCase()) {
@@ -18,8 +18,8 @@ const getCityImage = (cityName) => {
       return Rome;
     case "paris":
       return Paris;
-    case "barcelona":
-      return Barcellona;
+    case "madrid":
+      return Madrid;
     case "berlin":
       return Berlin;
     default:
@@ -29,12 +29,12 @@ const getCityImage = (cityName) => {
 
 const CarouselCity = ({ weatherData }) => {
   // Verifica che ci siano dati disponibili
-  const iconSize = "60px";
+  const iconSize = "80px";
 
   if (weatherData.length === 0) return <p>Loading...</p>;
 
   return (
-    <Carousel interval={10000} prevIcon={null} nextIcon={null} indicators={false}>
+    <Carousel interval={null} prevIcon={null} nextIcon={null} indicators={false}>
       {weatherData.map((cityData, index) => {
         const weatherIconUrl = getWeatherIconUrl(cityData.weather[0].icon);
         const cityImageUrl = getCityImage(cityData.name);
@@ -42,55 +42,49 @@ const CarouselCity = ({ weatherData }) => {
         return (
           <Carousel.Item key={index} style={{ height: "423px" }}>
             <Row className="align-items-center">
-              <Col xs={2} className="d-flex justify-content-end pe-0">
-                <CaretLeftFill className="fill-primary carousel-arrow" size={iconSize} />
+              <Col md={4} lg={1} className="d-none d-md-flex justify-content-center pe-0">
+                <CaretLeftFill className="fill-primary carousel-arrow me-2" size={iconSize} />
               </Col>
-              <Col xs={8} className="text-center">
+              <Col md={4} lg={10} className="text-center">
                 <Link to={`/weather/${cityData.name}`} style={{ textDecoration: "none", color: "inherit" }}>
                   <Row>
-                    <Col xs={6}>
+                    <Col md={12} lg={6} xl={5} className="d-flex justify-content-end">
                       <Row className="ps-5">
                         <Col xs={12} className="d-flex">
                           <h5 className="card-title fs-giant fw-bold my-3 pe-4">{cityData.name}</h5>
                           <img
                             src={weatherIconUrl}
                             alt={cityData.weather[0].description}
-                            style={{ width: "100px", height: "100px" }}
-                            className="bg-primary-subtle rounded-circle overflow-hidden"
+                            className="bg-primary-subtle rounded-circle overflow-hidden meteo-icon"
                           />
                         </Col>
                         <div className="mt-auto d-flex flex-column text-start">
                           <Col xs={12}>
-                            <p className="fs-4">
+                            <p className="fs-4 fs-md-5 fs-lg-4">
                               <strong>Weather:</strong> {cityData.weather[0].description}
                             </p>
-                            <p className="fs-4">
+                            <p className="fs-4 fs-md-5 fs-lg-4">
                               <strong>Temperature:</strong> {(cityData.main.temp - 273.15).toFixed(2)}°C
                             </p>
 
-                            <p className="fs-4">
+                            <p className="fs-4 fs-md-5 fs-lg-4">
                               <strong>Humidity:</strong> {cityData.main.humidity}%
                             </p>
-                            <p className="fs-4">
+                            <p className="fs-4 fs-md-5 fs-lg-4">
                               <strong>Wind Speed:</strong> {cityData.wind.speed} m/s
                             </p>
                           </Col>
                         </div>
                       </Row>
                     </Col>
-                    <Col xs={6} className="text-end">
-                      <img
-                        src={cityImageUrl}
-                        alt={`Image of ${cityData.name}`}
-                        // className="img-fluid"
-                        style={{ height: "100%", maxWidth: "660px" }}
-                      />
+                    <Col lg={6} xl={7} className="d-none d-lg-block overflow-hidden">
+                      <img src={cityImageUrl} alt={`Image of ${cityData.name}`} className="img-carousel img-fluid" />
                     </Col>
                   </Row>
                 </Link>
               </Col>
-              <Col xs={2} className="d-flex justify-content-start ps-0">
-                <CaretRightFill className="fill-primary carousel-arrow" size={iconSize} />
+              <Col md={4} lg={1} className="d-none d-md-flex justify-content-center ps-0">
+                <CaretRightFill className="fill-primary carousel-arrow ms-2" size={iconSize} />
               </Col>
             </Row>
           </Carousel.Item>

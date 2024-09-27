@@ -6,8 +6,8 @@ function MeteoCityCard({ cityMeteo }) {
   const { name, country, temp, weather, icon } = cityMeteo;
 
   return (
-    <Link to={`/weather/${name}`} style={{ textDecoration: "none", color: "inherit" }}>
-      <Row className="meteoCard glass-effect bg-primary-subtle border-0 position-relative">
+    <Link to={`/weather/${name}`} style={{ textDecoration: "none", color: "inherit" }} className="link-card">
+      <Row className="meteoCard glass-effect d-flex justify-content-center bg-primary-subtle border-0 position-relative">
         <Col xs={12} className="position-relative">
           <h5 className="card-title fs-2 fw-bold my-3">
             {name}, {country}

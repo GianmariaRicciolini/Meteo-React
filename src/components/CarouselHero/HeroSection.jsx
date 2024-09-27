@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import CarouselCity from "./CarouselCity";
 
-const cities = ["Milan", "Rome", "Barcellona", "Berlin", "Paris"];
+const cities = ["Milan", "Rome", "Madrid", "Berlin", "Paris"];
 
 function HeroSection() {
   const [weatherData, setWeatherData] = useState([]);
