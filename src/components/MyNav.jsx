@@ -10,7 +10,7 @@ function MyNav() {
       <Container fluid className="d-none d-md-flex justify-content-between">
         <Nav className="me-auto">
           <Nav.Link className="text-light fw-bold" as={Link} to="/">
-            <p className="m-0 fs-2">Home</p>
+            <p className="m-0 fs-2 ms-4">Home</p>
           </Nav.Link>
         </Nav>
         <SearchBar />
