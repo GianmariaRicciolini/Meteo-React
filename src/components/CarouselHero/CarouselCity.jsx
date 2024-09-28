@@ -34,7 +34,7 @@ const CarouselCity = ({ weatherData }) => {
   if (weatherData.length === 0) return <p>Loading...</p>;
 
   return (
-    <Carousel interval={null} prevIcon={null} nextIcon={null} indicators={false}>
+    <Carousel interval={10000} prevIcon={null} nextIcon={null} indicators={false}>
       {weatherData.map((cityData, index) => {
         const weatherIconUrl = getWeatherIconUrl(cityData.weather[0].icon);
         const cityImageUrl = getCityImage(cityData.name);
@@ -78,7 +78,11 @@ const CarouselCity = ({ weatherData }) => {
                       </Row>
                     </Col>
                     <Col lg={6} xl={7} className="d-none d-lg-block overflow-hidden">
-                      <img src={cityImageUrl} alt={`Image of ${cityData.name}`} className="img-carousel img-fluid" />
+                      <img
+                        src={cityImageUrl}
+                        alt={`Image of ${cityData.name}`}
+                        className="city-img-carousel img-fluid"
+                      />
                     </Col>
                   </Row>
                 </Link>

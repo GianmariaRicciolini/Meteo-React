@@ -38,28 +38,22 @@ const CityData = () => {
       {weatherData && (
         <>
           <div className="d-flex flex-column align-items-center my-5">
-            <Row className="align-items-center w-100">
-              <Col xs={12} md={10} lg={8}>
-                <h1 className="fs-giant fw-bold me-3 text-end">
-                  {weatherData.city.name}, {weatherData.city.country}
+            <Row className="text-center">
+              <Col xs={12} className="d-flex px-0">
+                <h1 className="fs-carousel-giant fw-bold pe-1 pe-sm-2 pe-xxl-5 m-0">
+                  {weatherData.city.name},{weatherData.city.country}
                 </h1>
-              </Col>
-              <Col xs={12} md={2} lg={4}>
                 <img
                   src={getWeatherIconUrl(weatherData.list[0].weather[0].icon)}
                   alt="Weather Icon"
-                  width="120px"
-                  className="bg-primary-subtle rounded-circle overflow-hidden text-start"
+                  className="bg-primary-subtle rounded-circle overflow-hidden carousel-icon"
                 />
               </Col>
             </Row>
-            <Row>
-              <Col xs={12} md={10}>
-                <h2 className="fs-1 mb-2 text-muted">{weatherData.list[0].weather[0].description}</h2>
-              </Col>
-
-              <Col xs={12} md={2}>
-                <h2 className="fs-1">{kelvinToCelsius(weatherData.list[0].main.temp)}°C</h2>
+            <Row className="text-center">
+              <Col xs={12} className="d-flex">
+                <h2 className="fs-carousel-big mb-2 text-muted pe-5">{weatherData.list[0].weather[0].description}</h2>
+                <h2 className="fs-carousel-big">{kelvinToCelsius(weatherData.list[0].main.temp)}°C</h2>
               </Col>
             </Row>
           </div>

@@ -223,7 +223,7 @@
 
 /* City Carousel */
 
-.img-carousel {
+.city-img-carousel {
   height: auto;
   max-height: 440px;
   max-width: 660;
@@ -238,5 +238,162 @@
   .meteo-icon {
     width: 80px;
     height: 80px;
+  }
+}
+
+.fs-carousel-big {
+  font-size: 4rem;
+}
+
+.fs-carousel-giant {
+  font-size: 7rem;
+}
+
+.fs-carousel-title {
+  font-size: 12rem;
+}
+
+.carousel-icon {
+  width: 120px;
+  height: 120px;
+}
+
+@media (max-width: 1200px) {
+  .carousel-icon {
+    width: 95px;
+    height: 95px;
+  }
+
+  .fs-carousel-big {
+    font-size: 3rem;
+  }
+
+  .fs-carousel-giant {
+    font-size: 5rem;
+  }
+
+  .fs-carousel-title {
+    font-size: 9rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .carousel-icon {
+    width: 90px;
+    height: 90px;
+  }
+
+  .fs-carousel-big {
+    font-size: 2.5rem;
+  }
+
+  .fs-carousel-giant {
+    font-size: 4.5rem;
+  }
+
+  .fs-carousel-title {
+    font-size: 9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .fs-carousel-big {
+    font-size: 1.6rem;
+  }
+
+  .fs-carousel-giant {
+    font-size: 3.6rem;
+  }
+
+  .fs-carousel-title {
+    font-size: 9rem;
+  }
+}
+
+@media (max-width: 545px) {
+  .carousel-icon {
+    width: 65px;
+    height: 65px;
+  }
+
+  .fs-carousel-big {
+    font-size: 1.5rem;
+  }
+
+  .fs-carousel-giant {
+    font-size: 3rem;
+  }
+
+  .fs-carousel-title {
+    font-size: 7rem;
+  }
+}
+
+@media (max-width: 470px) {
+  .carousel-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .fs-carousel-big {
+    font-size: 1.5rem;
+  }
+
+  .fs-carousel-giant {
+    font-size: 2.5rem;
+  }
+
+  .fs-carousel-title {
+    font-size: 7rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .carousel-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .fs-carousel-big {
+    font-size: 1.5rem;
+  }
+
+  .fs-carousel-giant {
+    font-size: 2rem;
+  }
+
+  .fs-carousel-title {
+    font-size: 7rem;
+  }
+}
+
+.img-carousel {
+  width: 100px;
+  height: 100px;
+}
+
+@media (max-width: 768px) {
+  .img-carousel {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 460px) {
+  .img-carousel {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 410px) {
+  .img-carousel {
+    width: 70px;
+    height: 70px;
   }
 }
