@@ -28,11 +28,26 @@ const SearchBar = () => {
     window.location.href = `/weather/${encodedCity}`; // Naviga alla nuova pagina
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (searchTerm.trim()) {
       const city = encodeURIComponent(searchTerm.trim());
-      window.location.href = `/weather/${city}`; // Naviga alla nuova pagina
+
+      try {
+        // Esegui una chiamata API per verificare se la città esiste
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=YOUR_API_KEY`);
+
+        if (response.ok) {
+          // Se la città esiste, reindirizza alla pagina della città
+          window.location.href = `/weather/${city}`;
+        } else {
+          // Se la fetch fallisce, reindirizza alla pagina 404
+          window.location.href = `/404`;
+        }
+      } catch (error) {
+        // In caso di errore di rete, reindirizza alla pagina 404
+        window.location.href = `/404`;
+      }
     }
   };
 
