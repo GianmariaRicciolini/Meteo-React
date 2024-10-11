@@ -78,11 +78,7 @@ const CarouselCity = ({ weatherData }) => {
                       </Row>
                     </Col>
                     <Col lg={6} xl={7} className="d-none d-lg-block overflow-hidden">
-                      <img
-                        src={cityImageUrl}
-                        alt={`Image of ${cityData.name}`}
-                        className="city-img-carousel img-fluid"
-                      />
+                      <img src={cityImageUrl} alt={`${cityData.name}`} className="city-img-carousel img-fluid" />
                     </Col>
                   </Row>
                 </Link>
