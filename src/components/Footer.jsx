@@ -16,24 +16,16 @@ const Footer = () => {
             <h5 className="pb-4">Link utili</h5>
             <ul className="list-unstyled">
               <li>
-                <a href="#" className="text-light">
-                  Lorem
-                </a>
+                <p className="text-light">Lorem</p>
               </li>
               <li>
-                <a href="#" className="text-light">
-                  Ipsum
-                </a>
+                <p className="text-light">Ipsum</p>
               </li>
               <li>
-                <a href="#" className="text-light">
-                  Hello
-                </a>
+                <p className="text-light">Hello</p>
               </li>
               <li>
-                <a href="#" className="text-light">
-                  World
-                </a>
+                <p className="text-light">World</p>
               </li>
             </ul>
           </Col>
