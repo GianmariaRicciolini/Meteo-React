@@ -28,10 +28,11 @@ const SearchBar = ({ uniqueCities }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log("Submit triggered with search term:", searchTerm);
 
     if (searchTerm.trim()) {
       // Trova la città corrispondente tra quelle suggerite
-      const matchedCity = uniqueCities.find((city) => city.name.toLowerCase() === searchTerm.toLowerCase());
+      const matchedCity = filteredCities.find((city) => city.name.toLowerCase() === searchTerm.toLowerCase());
 
       if (matchedCity) {
         // Se la città è valida, reindirizza con il nome corretto
@@ -61,9 +62,9 @@ const SearchBar = ({ uniqueCities }) => {
 
   return (
     <div style={{ position: "relative", width: "100%" }}>
-      <Form onSubmit={handleSubmit} className="py-3 d-flex justify-content-end ms-auto align-items-center">
+      <Form onSubmit={handleSubmit} className="py-3 justify-content-end ms-auto align-items-center d-none d-md-flex ">
         <h4 className="pe-3 fs-2 m-0 fw-bold d-none d-md-block">Search Your City!</h4>
-        <div style={{ position: "relative" }} className="d-none d-md-block w-50">
+        <div style={{ position: "relative" }} className="w-50">
           <Form.Control
             type="text"
             placeholder="Search cities..."
@@ -98,13 +99,15 @@ const SearchBar = ({ uniqueCities }) => {
             </div>
           )}
         </div>
-
-        <div style={{ position: "relative" }} className="d-block d-md-none w-100">
+      </Form>
+      <Form onSubmit={handleSubmit} className="py-3 d-flex justify-content-end ms-auto align-items-center d-md-none">
+        <div style={{ position: "relative" }} className="w-100">
           <Form.Control
             type="text"
             placeholder="Search cities..."
             value={searchTerm}
             onChange={handleChange}
+            onSubmit={handleSubmit}
             onFocus={() => setShowSuggestions(true)}
             onBlur={() => setTimeout(() => setShowSuggestions(false), 100)}
             onKeyDown={handleKeyDown} // Ascolta gli eventi della tastiera
