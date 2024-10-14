@@ -48,14 +48,14 @@ const SearchBar = ({ uniqueCities }) => {
   const handleKeyDown = (event) => {
     if (event.key === "ArrowDown") {
       // Freccia giù - incrementa l'indice attivo
-      setActiveIndex((prevIndex) => (prevIndex < uniqueCities.length - 1 ? prevIndex + 1 : 0));
+      setActiveIndex((prevIndex) => (prevIndex < filteredCities.length - 1 ? prevIndex + 1 : 0));
     } else if (event.key === "ArrowUp") {
       // Freccia su - decrementa l'indice attivo
-      setActiveIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : uniqueCities.length - 1));
+      setActiveIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : filteredCities.length - 1));
     } else if (event.key === "Enter" && activeIndex >= 0) {
       // Se si preme Enter e c'è un elemento attivo, seleziona l'elemento
       event.preventDefault();
-      handleCitySelect(uniqueCities[activeIndex].name); // Seleziona la città e cambia pagina
+      handleCitySelect(filteredCities[activeIndex].name); // Seleziona la città e cambia pagina
     }
   };
 
