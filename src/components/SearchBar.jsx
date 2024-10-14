@@ -62,8 +62,44 @@ const SearchBar = ({ uniqueCities }) => {
   return (
     <div style={{ position: "relative", width: "100%" }}>
       <Form onSubmit={handleSubmit} className="py-3 d-flex justify-content-end ms-auto align-items-center">
-        <h4 className="pe-3 fs-2 m-0 fw-bold">Search Your City!</h4>
-        <div style={{ position: "relative", width: "50%" }}>
+        <h4 className="pe-3 fs-2 m-0 fw-bold d-none d-md-block">Search Your City!</h4>
+        <div style={{ position: "relative" }} className="d-none d-md-block w-50">
+          <Form.Control
+            type="text"
+            placeholder="Search cities..."
+            value={searchTerm}
+            onChange={handleChange}
+            onFocus={() => setShowSuggestions(true)}
+            onBlur={() => setTimeout(() => setShowSuggestions(false), 100)}
+            onKeyDown={handleKeyDown} // Ascolta gli eventi della tastiera
+            className="border-3 border-black bg-light w-75 ms-auto me-4"
+          />
+          {showSuggestions && (
+            <div
+              style={{
+                position: "absolute",
+                top: "100%",
+                left: 0,
+                right: 0,
+                backgroundColor: "white",
+                zIndex: 1000,
+                border: "1px solid #ccc",
+                maxHeight: "200px",
+                overflowY: "auto",
+              }}
+            >
+              <CitySuggestion
+                searchTerm={searchTerm}
+                onCitySelect={handleCitySelect}
+                uniqueCities={filteredCities} // Passa la lista filtrata
+                activeIndex={activeIndex} // Passa l'indice attivo
+                setActiveIndex={setActiveIndex} // Permette l'aggiornamento dell'indice attivo
+              />
+            </div>
+          )}
+        </div>
+
+        <div style={{ position: "relative" }} className="d-block d-md-none w-100">
           <Form.Control
             type="text"
             placeholder="Search cities..."

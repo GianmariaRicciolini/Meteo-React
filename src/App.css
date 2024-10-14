@@ -397,3 +397,7 @@
     height: 70px;
   }
 }
+
+.searchBar-dimensions {
+  width: 50%;
+}
