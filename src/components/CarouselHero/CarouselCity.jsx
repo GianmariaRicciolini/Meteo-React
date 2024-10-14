@@ -10,6 +10,15 @@ import Paris from "../../assets/img/Paris.jpg";
 import Berlin from "../../assets/img/Berlin.jpg";
 import Madrid from "../../assets/img/Madrid_panorama.jpg";
 
+const getFetchCityName = (cityName) => {
+  switch (cityName.toLowerCase()) {
+    case "rome":
+      return "Roma Capitale"; // Usa "Roma Capitale" per la fetch
+    default:
+      return cityName; // Usa il nome della città come appare nel carosello
+  }
+};
+
 const getCityImage = (cityName) => {
   switch (cityName.toLowerCase()) {
     case "milan":
@@ -36,6 +45,7 @@ const CarouselCity = ({ weatherData }) => {
   return (
     <Carousel interval={10000} prevIcon={null} nextIcon={null} indicators={false}>
       {weatherData.map((cityData, index) => {
+        const fetchCityName = getFetchCityName(cityData.name);
         const weatherIconUrl = getWeatherIconUrl(cityData.weather[0].icon);
         const cityImageUrl = getCityImage(cityData.name);
 
@@ -46,7 +56,7 @@ const CarouselCity = ({ weatherData }) => {
                 <CaretLeftFill className="fill-primary carousel-arrow me-2" size={iconSize} />
               </Col>
               <Col md={4} lg={10} className="text-center">
-                <Link to={`/weather/${cityData.name}`} style={{ textDecoration: "none", color: "inherit" }}>
+                <Link to={`/weather/${fetchCityName}`} style={{ textDecoration: "none", color: "inherit" }}>
                   <Row>
                     <Col md={12} lg={6} xl={5} className="d-flex justify-content-end">
                       <Row className="ps-5">

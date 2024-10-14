@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
-import cities from "../data/city.list.json"; // Import JSON
 import MeteoCityCard from "./MeteoCityCard";
 
 const API_KEY = "0c1397fcc1479fba154a81ca832192b0"; // My API key
@@ -10,27 +9,31 @@ function getRandomCities(cityList, count) {
   return shuffled.slice(0, count);
 }
 
-function RadomCity() {
+function RadomCity({ uniqueCities }) {
   const [cityData, setCityData] = useState([]);
-  const [loading, setLoading] = useState(true); // Stato per gestire il caricamento
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let isCancelled = false; // Variabile per gestire il cleanup e prevenire doppie fetch
+    let isCancelled = false;
 
     const fetchWeatherData = async () => {
       setLoading(true);
-      const randomCities = getRandomCities(cities, 9); // Seleziona 9 città casuali
+
+      if (uniqueCities.length === 0) {
+        setLoading(false); // Se non ci sono città, termina il caricamento
+        return;
+      }
+
+      const randomCities = getRandomCities(uniqueCities, 9);
 
       const promises = randomCities.map((city) =>
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city.name}&appid=${API_KEY}&units=metric`)
           .then((response) => response.json())
           .then((data) => {
             if (!isCancelled) {
-              // Controlla se il fetch è stato annullato
-              console.log(data); // Fai il log dei dati appena ricevuti
               return {
                 name: data.name,
-                country: data.sys.country, // Usa sys.country per il paese
+                country: data.sys.country,
                 temp: data.main.temp,
                 weather: data.weather[0].description,
                 icon: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
@@ -52,7 +55,7 @@ function RadomCity() {
     return () => {
       isCancelled = true; // Annulla la fetch se il componente si smonta
     };
-  }, []);
+  }, [uniqueCities]); // Aggiungi uniqueCities come dipendenza
 
   return (
     <Container className="py-5 my-5">

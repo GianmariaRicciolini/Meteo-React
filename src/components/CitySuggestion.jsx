@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CitySuggestions = ({ filteredCities, onCitySelect, activeIndex }) => {
+const CitySuggestion = ({ uniqueCities, onCitySelect, activeIndex }) => {
   const getCityDisplayName = (city) => {
     return city.state ? `${city.name}, ${city.state}, ${city.country}` : `${city.name}, ${city.country}`;
   };
 
   return (
     <ul style={{ listStyleType: "none", padding: 0, marginTop: 0 }}>
-      {filteredCities.map((city, index) => (
+      {uniqueCities.map((city, index) => (
         <li
           key={city.id}
           style={{
@@ -33,4 +33,4 @@ const CitySuggestions = ({ filteredCities, onCitySelect, activeIndex }) => {
   );
 };
 
-export default CitySuggestions;
+export default CitySuggestion;

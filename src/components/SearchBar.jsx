@@ -1,17 +1,11 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import CitySuggestion from "./CitySuggestion"; // Corretto il nome dell'import
-import cities from "../data/city.list.json"; // Importa il file JSON con le città
 
-const SearchBar = () => {
+const SearchBar = ({ uniqueCities }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
-
-  // Filtra le città in base al termine di ricerca
-  const filteredCities = cities
-    .filter((city) => city.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
-    .slice(0, 10); // Mostra solo i primi 10 risultati
 
   const handleChange = (event) => {
     const value = event.target.value;
@@ -19,6 +13,10 @@ const SearchBar = () => {
     setShowSuggestions(true);
     setActiveIndex(-1); // Resetta l'indice attivo quando l'utente digita
   };
+
+  const filteredCities = uniqueCities
+    .filter((city) => city.name.toLowerCase().startsWith(searchTerm.toLowerCase()))
+    .slice(0, 999);
 
   const handleCitySelect = (cityName) => {
     setSearchTerm(cityName); // Aggiorna il campo di input con il nome della città selezionata
@@ -28,24 +26,19 @@ const SearchBar = () => {
     window.location.href = `/weather/${encodedCity}`; // Naviga alla nuova pagina
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
+
     if (searchTerm.trim()) {
-      const city = encodeURIComponent(searchTerm.trim());
+      // Trova la città corrispondente tra quelle suggerite
+      const matchedCity = uniqueCities.find((city) => city.name.toLowerCase() === searchTerm.toLowerCase());
 
-      try {
-        // Esegui una chiamata API per verificare se la città esiste
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=YOUR_API_KEY`);
-
-        if (response.ok) {
-          // Se la città esiste, reindirizza alla pagina della città
-          window.location.href = `/weather/${city}`;
-        } else {
-          // Se la fetch fallisce, reindirizza alla pagina 404
-          window.location.href = `/404`;
-        }
-      } catch (error) {
-        // In caso di errore di rete, reindirizza alla pagina 404
+      if (matchedCity) {
+        // Se la città è valida, reindirizza con il nome corretto
+        const encodedCity = encodeURIComponent(matchedCity.name);
+        window.location.href = `/weather/${encodedCity}`;
+      } else {
+        // Se la città non è trovata, puoi reindirizzare a una pagina di errore o mostrare un messaggio
         window.location.href = `/404`;
       }
     }
@@ -55,14 +48,14 @@ const SearchBar = () => {
   const handleKeyDown = (event) => {
     if (event.key === "ArrowDown") {
       // Freccia giù - incrementa l'indice attivo
-      setActiveIndex((prevIndex) => (prevIndex < filteredCities.length - 1 ? prevIndex + 1 : 0));
+      setActiveIndex((prevIndex) => (prevIndex < uniqueCities.length - 1 ? prevIndex + 1 : 0));
     } else if (event.key === "ArrowUp") {
       // Freccia su - decrementa l'indice attivo
-      setActiveIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : filteredCities.length - 1));
+      setActiveIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : uniqueCities.length - 1));
     } else if (event.key === "Enter" && activeIndex >= 0) {
       // Se si preme Enter e c'è un elemento attivo, seleziona l'elemento
       event.preventDefault();
-      handleCitySelect(filteredCities[activeIndex].name); // Seleziona la città e cambia pagina
+      handleCitySelect(uniqueCities[activeIndex].name); // Seleziona la città e cambia pagina
     }
   };
 
@@ -98,7 +91,7 @@ const SearchBar = () => {
               <CitySuggestion
                 searchTerm={searchTerm}
                 onCitySelect={handleCitySelect}
-                filteredCities={filteredCities} // Passa la lista filtrata
+                uniqueCities={filteredCities} // Passa la lista filtrata
                 activeIndex={activeIndex} // Passa l'indice attivo
                 setActiveIndex={setActiveIndex} // Permette l'aggiornamento dell'indice attivo
               />

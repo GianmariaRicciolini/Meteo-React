@@ -3,7 +3,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
 
-function MyNav() {
+function MyNav({ uniqueCities }) {
   return (
     <Navbar expand="md" className="bg-black text-light">
       {/* Navbar for medium screens and above */}
@@ -13,7 +13,7 @@ function MyNav() {
             <p className="m-0 fs-2 ms-4">Home</p>
           </Nav.Link>
         </Nav>
-        <SearchBar />
+        <SearchBar uniqueCities={uniqueCities} />
       </Container>
 
       {/* Burger Navbar for small screens */}
@@ -30,7 +30,7 @@ function MyNav() {
               <p className="m-0 fs-2 me-4">Home</p>
             </Nav.Link>
             {/* Right side (SearchBar on small screens) */}
-            <SearchBar />
+            <SearchBar uniqueCities={uniqueCities} />
           </Nav>
         </Navbar.Collapse>
       </Container>

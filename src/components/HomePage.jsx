@@ -1,10 +1,9 @@
-// import React, { useEffect, useState } from "react";
-// import AlertHelp from "./AlertHelp";
+import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import RandomCity from "./RandomCity";
 import HeroSection from "./CarouselHero/HeroSection";
 
-function HomePage() {
+function HomePage({ uniqueCities }) {
   return (
     <Container fluid className="bg-light">
       <Row>
@@ -22,7 +21,7 @@ function HomePage() {
           <p className="card-title fs-1 fw-bold m-0">Curious about the weather around the world? Here's a snapshot!</p>
         </Col>
       </Row>
-      <RandomCity />
+      <RandomCity uniqueCities={uniqueCities} />
     </Container>
   );
 }
